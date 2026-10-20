@@ -40,29 +40,30 @@ API de TUNI ──► 01 descargar ──► 02 transformar (SQL) ────�
 
 ## Power BI
 
-`UCSP_Benchmark.pbix` tiene el modelo, con 12 tablas, 23 relaciones y 76 medidas, y el informe de tres páginas:
+`UCSP_Benchmark.pbix` tiene el modelo, con 12 tablas, 23 relaciones y 76 medidas, y el informe de tres páginas de 1920 × 1080. Cada página abre con un titular que se reescribe con los filtros:
 
 1. **Posición de mercado**: pregunta 4.1.
 2. **Portafolio de programas**: preguntas 4.2 y 4.3.
 3. **Admisión y selectividad**: pregunta 4.4.
 
+**Filtros:** periodo, departamento, macrorregión y gestión en las tres páginas. La UCSP es el sujeto fijo: la geografía y la gestión definen el mercado contra el que se compara; sin filtro, ese mercado es la macrorregión sur.
+
 Si el proyecto se mueve de carpeta, se cambia el parámetro `RutaGold` (*Transformar datos → Editar parámetros*) y se actualiza.
 
-- Armado y verificación, visual por visual: [`powerbi/GUIA_ARMADO.md`](powerbi/GUIA_ARMADO.md).
-- Tema: [`powerbi/tema_ucsp_ejecutivo.json`](powerbi/tema_ucsp_ejecutivo.json).
+![Posición de mercado](docs/img/tablero_p1.png)
+![Portafolio de programas](docs/img/tablero_p2.png)
+![Admisión y selectividad](docs/img/tablero_p3.png)
 
 ## Dónde está cada cosa
 
 | Para revisar | Archivo |
 |---|---|
-| Indicadores elegidos por pregunta, y por qué | [`docs/preguntas_e_indicadores.md`](docs/preguntas_e_indicadores.md) |
-| Componente estadístico: sustento, aplicabilidad y limitaciones | [`docs/componente_estadistico.md`](docs/componente_estadistico.md) |
-| Controles de calidad y el problema que motiva cada uno | [`docs/controles_calidad.md`](docs/controles_calidad.md) |
-| Diccionario de datos y catálogo de medidas | [`docs/diccionario_datos.md`](docs/diccionario_datos.md) · [`docs/catalogo_medidas.md`](docs/catalogo_medidas.md) |
-| Decisiones técnicas, con su alternativa y evidencia | [`docs/decisiones_tecnicas.md`](docs/decisiones_tecnicas.md) |
-| Propuesta en Microsoft Fabric y notebook PySpark | [`docs/arquitectura_fabric.md`](docs/arquitectura_fabric.md) · [`fabric/`](fabric/) |
-| Portabilidad a PostgreSQL y SQL Server | [`sql/portabilidad.md`](sql/portabilidad.md) · `sql/ddl_*.sql` |
-| Presentación técnica | `salidas/PPT_Tecnica_UCSP.pptx` |
+| Diccionario de datos y catálogo de medidas (entregable 5.3) | [`docs/diccionario_datos.md`](docs/diccionario_datos.md) · [`docs/catalogo_medidas.md`](docs/catalogo_medidas.md) |
+| Controles de calidad y sus resultados | [`sql/calidad.sql`](sql/calidad.sql) · [`salidas/calidad/qc_resultados.csv`](salidas/calidad/qc_resultados.csv) |
+| Componente estadístico | [`04_tendencias.py`](04_tendencias.py) |
+| Notebook PySpark para Microsoft Fabric | [`fabric/`](fabric/) |
+| Modelo estrella para PostgreSQL y SQL Server | [`sql/ddl_postgres.sql`](sql/ddl_postgres.sql) · [`sql/ddl_sqlserver.sql`](sql/ddl_sqlserver.sql) |
+| Presentación técnica: decisiones, sustento y limitaciones | `salidas/PPT_Tecnica_UCSP.pptx` |
 
 ## Uso de inteligencia artificial
 
@@ -72,4 +73,4 @@ Se usó **Claude (Anthropic)** como asistente en tres frentes:
 - la redacción del código, que se ejecutó y verificó etapa por etapa;
 - los borradores de la documentación.
 
-Las decisiones de diseño se tomaron y justificaron de forma explícita en [`docs/decisiones_tecnicas.md`](docs/decisiones_tecnicas.md). Todas las cifras citadas salen de ejecutar el pipeline.
+Las decisiones de diseño y su sustento están en la presentación técnica. Todas las cifras citadas salen de ejecutar el pipeline.

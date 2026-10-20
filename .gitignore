@@ -10,3 +10,6 @@ data/
 __pycache__/
 *.pyc
 .venv/
+
+# Archivos de bloqueo de Office mientras un documento esta abierto
+~$*

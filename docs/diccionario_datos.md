@@ -7,7 +7,6 @@ que no puede describir columnas que no existan.
 - **Fuente:** datos abiertos de SUNEDU publicados en <https://tuni.pe/datos>
 - **Recorte:** ingresantes y matriculados 2021-2025; postulantes 2022-2025
 - **Alcance:** solo pregrado (`NIVEL_ACADEMICO = 'Carrera Profesional'`)
-- **Decisiones de modelado y su sustento:** `docs/decisiones_tecnicas.md`
 
 ## Relaciones del modelo
 

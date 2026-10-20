@@ -519,17 +519,24 @@ CALCULATE (
 
 ### `Matricula Macrosur`
 
-Matricula IMPARTIDA en locales de la macrorregion sur, sea cual sea la sede de la universidad. Es un concepto distinto de es_macrosur_sede, que clasifica a la universidad entera: una universidad de Lima con filial en Cusco aporta a esta medida, pero no cuenta como universidad del sur.
+Matricula del MERCADO DE REFERENCIA: la geografia filtrada (departamento o macrorregion); sin filtro de geografia, la impartida en la macrorregion sur. Ignora la universidad y respeta la gestion. La UCSP es el sujeto fijo; la geografia define contra quien se compara.
 
 *Formato:* `#,0`
 
 ```dax
 Matricula Macrosur =
-CALCULATE (
-    [Matriculados],
-    ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-    REMOVEFILTERS ( dim_ubicacion ),
-    dim_ubicacion[es_macrosur] = TRUE
+-- Mercado de referencia: la geografia filtrada; sin filtro, la macrorregion sur.
+IF (
+    ISFILTERED ( dim_ubicacion ),
+    CALCULATE (
+        [Matriculados],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] )
+    ),
+    CALCULATE (
+        [Matriculados],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_ubicacion[es_macrosur] = TRUE
+    )
 )
 ```
 
@@ -626,17 +633,24 @@ CALCULATE (
 
 ### `CAGR Matricula Macrosur`
 
-CAGR de la matricula de programas impartidos en la macrorregion sur en el rango de anios seleccionado.
+CAGR de la matricula del mercado de referencia (geografia filtrada; sin filtro, la macrorregion sur) en el rango de anios seleccionado.
 
 *Formato:* `+0.0%;-0.0%;0.0%`
 
 ```dax
 CAGR Matricula Macrosur =
-CALCULATE (
-    [CAGR Matricula],
-    ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-    REMOVEFILTERS ( dim_ubicacion ),
-    dim_ubicacion[es_macrosur] = TRUE
+-- Mercado de referencia: la geografia filtrada; sin filtro, la macrorregion sur.
+IF (
+    ISFILTERED ( dim_ubicacion ),
+    CALCULATE (
+        [CAGR Matricula],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] )
+    ),
+    CALCULATE (
+        [CAGR Matricula],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_ubicacion[es_macrosur] = TRUE
+    )
 )
 ```
 
@@ -673,17 +687,24 @@ CALCULATE (
 
 ### `CAGR Ingresantes Macrosur`
 
-CAGR de los ingresantes de programas impartidos en la macrorregion sur en el rango de anios seleccionado.
+CAGR de los ingresantes del mercado de referencia (geografia filtrada; sin filtro, la macrorregion sur) en el rango de anios seleccionado.
 
 *Formato:* `+0.0%;-0.0%;0.0%`
 
 ```dax
 CAGR Ingresantes Macrosur =
-CALCULATE (
-    [CAGR Ingresantes],
-    ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-    REMOVEFILTERS ( dim_ubicacion ),
-    dim_ubicacion[es_macrosur] = TRUE
+-- Mercado de referencia: la geografia filtrada; sin filtro, la macrorregion sur.
+IF (
+    ISFILTERED ( dim_ubicacion ),
+    CALCULATE (
+        [CAGR Ingresantes],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] )
+    ),
+    CALCULATE (
+        [CAGR Ingresantes],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_ubicacion[es_macrosur] = TRUE
+    )
 )
 ```
 
@@ -720,17 +741,24 @@ CALCULATE (
 
 ### `Ingresantes Macrosur`
 
-Serie de referencia: ingresantes de programas impartidos en la macrorregion sur. Ignora universidad y ubicacion; respeta periodo, programa y gestion.
+Ingresantes del mercado de referencia: la geografia filtrada; sin filtro, los programas impartidos en la macrorregion sur. Ignora la universidad; respeta periodo, programa y gestion.
 
 *Formato:* `#,0`
 
 ```dax
 Ingresantes Macrosur =
-CALCULATE (
-    [Ingresantes],
-    ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-    REMOVEFILTERS ( dim_ubicacion ),
-    dim_ubicacion[es_macrosur] = TRUE
+-- Mercado de referencia: la geografia filtrada; sin filtro, la macrorregion sur.
+IF (
+    ISFILTERED ( dim_ubicacion ),
+    CALCULATE (
+        [Ingresantes],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] )
+    ),
+    CALCULATE (
+        [Ingresantes],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_ubicacion[es_macrosur] = TRUE
+    )
 )
 ```
 
@@ -852,20 +880,26 @@ CALCULATE (
 
 ### `Tasa de Admision Resto del Sur`
 
-Tasa de admision de los programas impartidos en la macrorregion sur por las DEMAS universidades. Es el comparador de la pregunta 4.4: en una tabla por campo de estudio, cada fila compara a la UCSP con sus equivalentes. Leer con el filtro de gestion en Privado: las publicas admiten 13-15 % y arrastran el promedio.
+Tasa de admision de las DEMAS universidades en el mercado de referencia: la geografia filtrada; sin filtro, los programas impartidos en la macrorregion sur. Es el comparador de la pregunta 4.4. Leer con el filtro de gestion en Privado: las publicas admiten 13-15 % y arrastran el promedio.
 
 *Formato:* `0.0%`
 
 ```dax
 Tasa de Admision Resto del Sur =
--- Excluye a la UCSP por la misma razon que el benchmark de la 4.3: si no,
--- la universidad se compararia contra un promedio que la contiene.
-CALCULATE (
-    [Tasa de Admision],
-    ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-    REMOVEFILTERS ( dim_ubicacion ),
-    dim_ubicacion[es_macrosur] = TRUE,
-    dim_universidad[es_ucsp] = FALSE
+-- Mercado de referencia: la geografia filtrada; sin filtro, la macrorregion sur.
+IF (
+    ISFILTERED ( dim_ubicacion ),
+    CALCULATE (
+        [Tasa de Admision],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_universidad[es_ucsp] = FALSE
+    ),
+    CALCULATE (
+        [Tasa de Admision],
+        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
+        dim_ubicacion[es_macrosur] = TRUE,
+        dim_universidad[es_ucsp] = FALSE
+    )
 )
 ```
 
@@ -1357,7 +1391,7 @@ RETURN
 
 ### `Titular Resumen`
 
-Frase de cabecera del resumen ejecutivo y de la pagina 4.1.
+Frase de cabecera de la pagina 4.1. Nombra el mercado de referencia: el departamento o la macrorregion filtrada; sin filtro, el sur.
 
 *Formato:* ``
 
@@ -1366,15 +1400,28 @@ Titular Resumen =
 VAR MatU = [CAGR Matricula UCSP]
 VAR IngU = [CAGR Ingresantes UCSP]
 VAR IngS = [CAGR Ingresantes Macrosur]
+VAR DelMercado =
+    IF (
+        ISFILTERED ( dim_ubicacion ),
+        IF (
+            HASONEVALUE ( dim_ubicacion[departamento] ),
+            "de " & VALUES ( dim_ubicacion[departamento] ),
+            IF (
+                HASONEVALUE ( dim_ubicacion[macrorregion] ),
+                "de la macrorregión " & VALUES ( dim_ubicacion[macrorregion] ),
+                "del mercado filtrado"
+            )
+        ),
+        "del sur"
+    )
 RETURN
     IF (
         NOT ISBLANK ( MatU ) && NOT ISBLANK ( IngU ),
         "En " & [Rango de Anios] & ", la matrícula de la UCSP "
             & IF ( MatU >= 0, "crece ", "cae " ) & FORMAT ( ABS ( MatU ), "0.0%" )
-            & " al año y su ingreso "
-            & IF ( IngU >= 0, "crece ", "cae " ) & FORMAT ( ABS ( IngU ), "0.0%" )
-            & "; el ingreso del sur "
-            & IF ( IngS >= 0, "crece ", "cae " ) & FORMAT ( ABS ( IngS ), "0.0%" ) & "."
+            & " al año y su ingreso " & IF ( IngU >= 0, "crece ", "cae " ) & FORMAT ( ABS ( IngU ), "0.0%" )
+            & "; el ingreso " & DelMercado & " " & IF ( IngS >= 0, "crece ", "cae " )
+            & FORMAT ( ABS ( IngS ), "0.0%" ) & "."
     )
 ```
 
@@ -1430,7 +1477,7 @@ RETURN
 
 ### `Titular Selectividad`
 
-Frase de cabecera de la pagina 4.4: la UCSP frente a sus pares privados. Una diferencia menor a 3 puntos se lee como similar: no se afirma mas de lo que el dato sostiene.
+Frase de cabecera de la pagina 4.4: la UCSP frente a las demas privadas del mercado de referencia (sin filtro, el sur). Una diferencia menor a 3 puntos se lee como similar: no se afirma mas de lo que el dato sostiene.
 
 *Formato:* ``
 
@@ -1438,11 +1485,25 @@ Frase de cabecera de la pagina 4.4: la UCSP frente a sus pares privados. Una dif
 Titular Selectividad =
 VAR U = [Tasa de Admision UCSP]
 VAR P = [Tasa de Admision Privadas del Sur]
+VAR DelMercado =
+    IF (
+        ISFILTERED ( dim_ubicacion ),
+        IF (
+            HASONEVALUE ( dim_ubicacion[departamento] ),
+            "de " & VALUES ( dim_ubicacion[departamento] ),
+            IF (
+                HASONEVALUE ( dim_ubicacion[macrorregion] ),
+                "de la macrorregión " & VALUES ( dim_ubicacion[macrorregion] ),
+                "del mercado filtrado"
+            )
+        ),
+        "del sur"
+    )
 RETURN
     IF (
         NOT ISBLANK ( U ) && NOT ISBLANK ( P ),
-        "La UCSP admite el " & FORMAT ( U, "0%" ) & " de sus postulaciones; las demás privadas del sur, el "
-            & FORMAT ( P, "0%" ) & ". "
+        "La UCSP admite el " & FORMAT ( U, "0%" ) & " de sus postulaciones; las demás privadas "
+            & DelMercado & ", el " & FORMAT ( P, "0%" ) & ". "
             & IF (
                 ABS ( U - P ) < 0.03,
                 "Su selectividad es similar a la de sus pares.",

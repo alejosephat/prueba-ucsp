@@ -2,7 +2,7 @@
 
 TECNICA: regresion lineal simple (OLS) de log(y) contra el anio, 2021-2025, por
 programa, sobre DOS series: ingresantes y matricula. Sustento, condiciones de
-aplicabilidad y limitaciones en docs/componente_estadistico.md.
+aplicabilidad y limitaciones en la presentacion tecnica (lamina 3.5).
 
 Por que en logaritmo: la pendiente de log(y) ~ anio es la tasa de crecimiento
 anual compuesta (CAGR = exp(pendiente) - 1). Un programa que pasa de 80 a 120

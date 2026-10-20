@@ -18,7 +18,7 @@ SHAREPOINT = "https://sunedu.sharepoint.com"
 # ---------------------------------------------------------------- alcance
 # Se ingesta el catalogo COMPLETO de TUNI: 56 archivos, 1 270 MB de zips.
 # No se recorta en la ingesta. El recorte, si hace falta, se decide en gold
-# y queda documentado ahi (ver docs/decisiones_tecnicas.md, B1).
+# y queda documentado ahi.
 #
 # Por que no recortar: bronze es la foto de lo que SUNEDU publico. Si manana
 # una pregunta necesita 2020 o el semestre II, el dato ya esta bajado y con

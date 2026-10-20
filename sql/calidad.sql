@@ -108,8 +108,8 @@ SELECT '04 Nulos en campos clave', 'ingresante.' || campo, CAST(nulos AS DOUBLE)
        -- lo deja vacio en ~20 % de los registros. Es una limitacion declarada,
        -- no un fallo del pipeline, asi que se reporta como INFO. Tratarla como
        -- REVISAR dejaria tres controles en rojo de forma permanente y haria
-       -- inservible la compuerta de calidad de la orquestacion (ver
-       -- docs/arquitectura_fabric.md). Los campos que SI son llave exigen 0.
+       -- inservible la compuerta de calidad de la orquestacion. Los campos que
+       -- SI son llave exigen 0.
        CASE WHEN campo = 'nombre_grupo_3' THEN 'limitacion declarada de la fuente'
             ELSE '= 0' END,
        CASE WHEN campo = 'nombre_grupo_3' THEN 'INFO'
@@ -128,8 +128,8 @@ SELECT '04 Nulos en campos clave', 'matriculado.' || campo, CAST(nulos AS DOUBLE
        -- lo deja vacio en ~20 % de los registros. Es una limitacion declarada,
        -- no un fallo del pipeline, asi que se reporta como INFO. Tratarla como
        -- REVISAR dejaria tres controles en rojo de forma permanente y haria
-       -- inservible la compuerta de calidad de la orquestacion (ver
-       -- docs/arquitectura_fabric.md). Los campos que SI son llave exigen 0.
+       -- inservible la compuerta de calidad de la orquestacion. Los campos que
+       -- SI son llave exigen 0.
        CASE WHEN campo = 'nombre_grupo_3' THEN 'limitacion declarada de la fuente'
             ELSE '= 0' END,
        CASE WHEN campo = 'nombre_grupo_3' THEN 'INFO'
@@ -148,8 +148,8 @@ SELECT '04 Nulos en campos clave', 'postulante.' || campo, CAST(nulos AS DOUBLE)
        -- lo deja vacio en ~20 % de los registros. Es una limitacion declarada,
        -- no un fallo del pipeline, asi que se reporta como INFO. Tratarla como
        -- REVISAR dejaria tres controles en rojo de forma permanente y haria
-       -- inservible la compuerta de calidad de la orquestacion (ver
-       -- docs/arquitectura_fabric.md). Los campos que SI son llave exigen 0.
+       -- inservible la compuerta de calidad de la orquestacion. Los campos que
+       -- SI son llave exigen 0.
        CASE WHEN campo = 'nombre_grupo_3' THEN 'limitacion declarada de la fuente'
             ELSE '= 0' END,
        CASE WHEN campo = 'nombre_grupo_3' THEN 'INFO'

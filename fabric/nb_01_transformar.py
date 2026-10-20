@@ -35,7 +35,7 @@ cero diferencias y no probar nada.
 
 NO EJECUTADO: este notebook esta escrito para el runtime de Spark de Fabric y
 no se ha corrido, porque el proyecto se entrega sin capacidad de Fabric activa
-(ver docs/arquitectura_fabric.md). Lo que si esta verificado es la equivalencia
+(ver la presentacion tecnica, lamina 3.6). Lo que si esta verificado es la equivalencia
 de las UDF y que los .sql que carga son los mismos que produjeron los
 resultados entregados.
 """

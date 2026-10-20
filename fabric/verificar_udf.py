@@ -2,8 +2,8 @@
 
 Uso:  python fabric/verificar_udf.py    (requiere data/sunedu.duckdb construida)
 
-Es la prueba de la afirmacion central de fabric/README.md: que el notebook de
-Spark produce lo mismo que el pipeline local. Sin este script esa afirmacion
+Es la prueba de la afirmacion central de la propuesta en Fabric: que el
+notebook de Spark produce lo mismo que el pipeline local. Sin este script esa afirmacion
 seria una promesa.
 
 Se ejecutan las dos implementaciones sobre TODOS los valores distintos de texto
