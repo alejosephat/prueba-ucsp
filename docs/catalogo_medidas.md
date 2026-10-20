@@ -1,6 +1,6 @@
 # Catálogo de medidas DAX
 
-79 medidas explícitas del modelo entregado (`UCSP_Benchmark.pbix`), en la tabla
+76 medidas explícitas del modelo entregado (`UCSP_Benchmark.pbix`), en la tabla
 `_Medidas` y organizadas en carpetas de visualización.
 
 ## Convenciones aplicadas
@@ -271,23 +271,6 @@ VAR Actual =
     CALCULATE ( [Programas Activos], REMOVEFILTERS ( dim_periodo ), dim_periodo[anio] = AnioActual )
 VAR Anterior =
     CALCULATE ( [Programas Activos], REMOVEFILTERS ( dim_periodo ), dim_periodo[anio] = AnioActual - 1 )
-RETURN
-    IF ( NOT ISBLANK ( Actual ) && NOT ISBLANK ( Anterior ), ( Actual - Anterior ) )
-```
-
-### `Var. HHI`
-
-Cambio del HHI contra el anio anterior. Negativo = la matricula se diversifica.
-
-*Formato:* `+#,0;-#,0;0`
-
-```dax
-Var. HHI =
-VAR AnioActual = MAX ( dim_periodo[anio] )
-VAR Actual =
-    CALCULATE ( [HHI Universidad], REMOVEFILTERS ( dim_periodo ), dim_periodo[anio] = AnioActual )
-VAR Anterior =
-    CALCULATE ( [HHI Universidad], REMOVEFILTERS ( dim_periodo ), dim_periodo[anio] = AnioActual - 1 )
 RETURN
     IF ( NOT ISBLANK ( Actual ) && NOT ISBLANK ( Anterior ), ( Actual - Anterior ) )
 ```
@@ -912,55 +895,6 @@ CALCULATE (
     [Tasa de Admision Resto del Sur],
     dim_universidad[tipo_gestion] = "Público"
 )
-```
-
-
-## 08 Concentracion
-
-### `HHI Universidad`
-
-Indice Herfindahl-Hirschman de la matricula entre programas de la universidad, escala 0-10000, en el ULTIMO anio del contexto. Alto = matricula concentrada en pocos programas. Precalculado en fct_concentracion.
-
-*Formato:* `#,0`
-
-```dax
-HHI Universidad =
--- Ultimo anio en contexto, como los demas indicadores de stock: el HHI de un
--- rango no es el promedio de sus HHI. Medido: con la UCSP y 2021-2025, el
--- promedio daba 1 308; el valor de 2025 es 1 212.
-VAR UltimoAnio = MAX ( fct_concentracion[anio] )
-RETURN
-    CALCULATE ( AVERAGE ( fct_concentracion[hhi] ), dim_periodo[anio] = UltimoAnio )
-```
-
-### `HHI Mediana Macrosur`
-
-Mediana del HHI de las universidades con SEDE PRINCIPAL en la macrorregion sur en el ultimo anio del contexto, como referencia para juzgar si la UCSP esta mas o menos concentrada que sus pares. Filtra por dim_universidad[es_macrosur_sede]: fct_concentracion esta a grano anio x universidad y no se relaciona con dim_ubicacion.
-
-*Formato:* `#,0`
-
-```dax
-HHI Mediana Macrosur =
--- La iteracion quita los filtros de universidad (salvo la gestion). Sin eso,
--- un filtro de la UCSP llegaba hasta el CALCULATE interno, las demas
--- universidades del sur quedaban sin valor y la mediana salia en blanco.
-VAR UltimoAnio = MAX ( fct_concentracion[anio] )
-VAR Universidades =
-    CALCULATETABLE (
-        VALUES ( fct_concentracion[codigo_inei] ),
-        ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-        dim_universidad[es_macrosur_sede] = TRUE,
-        dim_periodo[anio] = UltimoAnio
-    )
-RETURN
-    MEDIANX (
-        Universidades,
-        CALCULATE (
-            AVERAGE ( fct_concentracion[hhi] ),
-            ALLEXCEPT ( dim_universidad, dim_universidad[tipo_gestion] ),
-            dim_periodo[anio] = UltimoAnio
-        )
-    )
 ```
 
 

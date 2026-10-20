@@ -14,10 +14,10 @@ WITH todo AS (
            tipo_constitucion, licenciamiento FROM silver_postulante
 ),
 -- Sede principal: el departamento donde la universidad concentra MAS matricula.
--- Hace falta porque fct_concentracion esta a grano anio x universidad y no se
--- relaciona con dim_ubicacion: sin este atributo, una medida como la mediana del
--- HHI de la macrorregion sur no tendria por donde filtrar y devolveria la
--- mediana nacional. La definicion es declarada: "universidad del sur" = aquella
+-- Hace falta porque fct_docentes no trae programa ni ubicacion, asi que no se
+-- relaciona con dim_ubicacion: sin este atributo, una medida como el ratio
+-- alumno/docente de la macrorregion sur no tendria por donde filtrar y
+-- devolveria el ratio nacional. La definicion es declarada: "universidad del sur" = aquella
 -- cuya sede principal (por volumen de matricula) esta en la macrorregion sur.
 sede AS (
     SELECT codigo_inei,

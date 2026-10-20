@@ -83,7 +83,7 @@ tocar, no cuántas sustituciones hay que hacer dentro de ellas.
 ## Lo que se entrega además
 
 `sql/ddl_postgres.sql` y `sql/ddl_sqlserver.sql`: el DDL completo del modelo estrella
-—13 tablas con tipos, claves primarias y foráneas— listo para crear el esquema en el
+—12 tablas con tipos, claves primarias y foráneas— listo para crear el esquema en el
 entorno institucional. Incluyen el comentario que advierte que `codigo_inei` en
 `dim_programa` es FK en la base pero **no** debe relacionarse en el modelo semántico.
 

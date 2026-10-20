@@ -10,7 +10,7 @@ import duckdb
 from config import DOCS, DUCKDB
 
 GRANO = {
-    "dim_periodo": "Una fila por anio. Dimension conformada: se relaciona con los SIETE hechos. "
+    "dim_periodo": "Una fila por anio. Dimension conformada: se relaciona con los SEIS hechos. "
                    "El grano es anual porque es el grano comun a todos; el eje semestral vive en dim_semestre.",
     "dim_semestre": "Una fila por periodo lectivo: I, II y 'Otro'. Conformada solo sobre los tres hechos "
                     "semestrales (matricula, egresados, docentes). La fila 'Otro' recoge los periodos de "
@@ -24,7 +24,6 @@ GRANO = {
                      "semestres de 2020-I a 2025-II; la serie anual comparable se obtiene filtrando "
                      "dim_semestre[es_serie_anual], que es un filtro de consulta y no un recorte de datos.",
     "fct_postulantes": "Una fila por anio x universidad x programa (primera opcion) x ubicacion.",
-    "fct_concentracion": "Una fila por anio x universidad.",
     "fct_egresados": "Una fila por anio x semestre x universidad x programa. NO tiene ubicacion: medido, "
                      "DEPARTAMENTO_FILIAL viene vacio en el 100 % de las 587 527 filas de la fuente.",
     "fct_docentes": "Una fila por anio x semestre x universidad. Grano mas grueso que los demas hechos y "
@@ -43,7 +42,6 @@ LLAVE = {
     "fct_ingresantes": "anio + programa_sk + ubicacion_sk",
     "fct_matricula": "anio + semestre + programa_sk + ubicacion_sk",
     "fct_postulantes": "anio + programa_sk + ubicacion_sk",
-    "fct_concentracion": "anio + codigo_inei",
     "dim_semestre": "semestre",
     "fct_egresados": "anio + semestre + programa_sk",
     "fct_docentes": "anio + semestre + codigo_inei",
@@ -120,9 +118,6 @@ CAMPO = {
     "postulaciones": "Postulaciones recibidas. Una persona puede postular a varios programas.",
     "postulantes": "Personas distintas que postulan al programa como primera opcion.",
     "admitidos": "Postulaciones con ES_INGRESANTE = SI en la fuente. Numerador de la tasa de admision.",
-    "hhi": "Indice Herfindahl-Hirschman de la matricula entre programas de la universidad (0-10000).",
-    "programas": "Programas con matricula en la universidad ese anio.",
-    "matriculados_universidad": "Matricula total de la universidad ese anio.",
     "anios_ing": "Anios con ingresantes positiva en 2021-2025 que entran en la regresion.",
     "cagr_ing": "CAGR de ingresantes estimado por OLS sobre log(ingresantes) 2021-2025.",
     "p_valor_ing": "p-valor del t-test de la pendiente de ingresantes (gl = n - 2).",
@@ -170,8 +165,6 @@ simple**.
                         dim_programa (programa_sk)
                                |
                    dim_tendencia_programa (1:1)
-
-   fct_concentracion se relaciona con dim_periodo y dim_universidad.
 ```
 
 > `dim_programa` contiene `codigo_inei` como **atributo descriptivo**, no como

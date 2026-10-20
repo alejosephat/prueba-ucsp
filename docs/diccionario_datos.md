@@ -26,8 +26,6 @@ simple**.
                         dim_programa (programa_sk)
                                |
                    dim_tendencia_programa (1:1)
-
-   fct_concentracion se relaciona con dim_periodo y dim_universidad.
 ```
 
 > `dim_programa` contiene `codigo_inei` como **atributo descriptivo**, no como
@@ -40,13 +38,12 @@ simple**.
 
 | Tabla | Tipo | Filas | Granularidad |
 |---|---|---|---|
-| `dim_periodo` | Dimension | 6 | Una fila por anio. Dimension conformada: se relaciona con los SIETE hechos. El grano es anual porque es el grano comun a todos; el eje semestral vive en dim_semestre. |
+| `dim_periodo` | Dimension | 6 | Una fila por anio. Dimension conformada: se relaciona con los SEIS hechos. El grano es anual porque es el grano comun a todos; el eje semestral vive en dim_semestre. |
 | `dim_programa` | Dimension | 2,812 | Una fila por programa de una universidad. |
 | `dim_semestre` | Dimension | 3 | Una fila por periodo lectivo: I, II y 'Otro'. Conformada solo sobre los tres hechos semestrales (matricula, egresados, docentes). La fila 'Otro' recoge los periodos de egreso extraordinarios que trae la fuente de egresados. |
 | `dim_tendencia_programa` | Dimension | 2,812 | Una fila por programa. Salida del componente estadistico (04_tendencias.py). |
 | `dim_ubicacion` | Dimension | 98 | Una fila por combinacion departamento + provincia. |
 | `dim_universidad` | Dimension | 168 | Una fila por universidad (codigo INEI). |
-| `fct_concentracion` | Hecho | 861 | Una fila por anio x universidad. |
 | `fct_docentes` | Hecho | 1,300 | Una fila por anio x semestre x universidad. Grano mas grueso que los demas hechos y declarado: la fuente de docentes no trae programa, y su unica geografia es el departamento de NACIMIENTO del docente, no el del local donde ensena. |
 | `fct_egresados` | Hecho | 11,000 | Una fila por anio x semestre x universidad x programa. NO tiene ubicacion: medido, DEPARTAMENTO_FILIAL viene vacio en el 100 % de las 587 527 filas de la fuente. |
 | `fct_ingresantes` | Hecho | 15,215 | Una fila por anio x universidad x programa x ubicacion. |
@@ -56,7 +53,7 @@ simple**.
 
 ## `dim_periodo`
 
-**Granularidad:** Una fila por anio. Dimension conformada: se relaciona con los SIETE hechos. El grano es anual porque es el grano comun a todos; el eje semestral vive en dim_semestre.
+**Granularidad:** Una fila por anio. Dimension conformada: se relaciona con los SEIS hechos. El grano es anual porque es el grano comun a todos; el eje semestral vive en dim_semestre.
 
 **Llave:** `anio`
 
@@ -171,22 +168,6 @@ simple**.
 | `macrorregion_sede` | VARCHAR | Macrorregion de la sede principal. Clasifica a la universidad entera. |
 | `es_macrosur_sede` | BOOLEAN | Marca las universidades con sede principal en el sur. **Distinto de dim_ubicacion[es_macrosur]**, que marca donde se imparte un programa: una universidad de Lima con filial en Cusco aporta matricula al sur pero no es una universidad del sur. |
 | `es_ucsp` | BOOLEAN | Marca la Universidad Catolica San Pablo (codigo INEI 260000062). |
-
-## `fct_concentracion`
-
-**Granularidad:** Una fila por anio x universidad.
-
-**Llave:** `anio + codigo_inei`
-
-**Filas:** 861
-
-| Columna | Tipo | Descripcion |
-|---|---|---|
-| `anio` | SMALLINT | Anio del periodo academico. FK a dim_periodo. |
-| `codigo_inei` | VARCHAR | Codigo INEI de la universidad. Llave estable entre periodos. FK a dim_universidad. |
-| `hhi` | DOUBLE | Indice Herfindahl-Hirschman de la matricula entre programas de la universidad (0-10000). |
-| `programas` | BIGINT | Programas con matricula en la universidad ese anio. |
-| `matriculados_universidad` | HUGEINT | Matricula total de la universidad ese anio. |
 
 ## `fct_docentes`
 

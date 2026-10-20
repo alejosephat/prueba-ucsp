@@ -82,7 +82,7 @@ TUNI.PE API ──► 01_descargar.py ──► data/bronze/*.zip + manifiesto.c
 |---|---|---|---|---|
 | **Bronze** | `Files/bronze/` | Zips tal como los publica SUNEDU | Los **9 datasets del catálogo**, 56 archivos, 1 270 MB, con manifiesto sha256 | Indefinida: es la evidencia de trazabilidad |
 | **Silver** | `Tables/silver/` | Delta | **7 de los 9** tipados y normalizados, esquemas divergentes unificados, filtrados a pregrado | Última carga completa |
-| **Gold** | `Tables/gold/` | Delta | Modelo estrella: **6 dimensiones conformadas + 7 hechos** + la salida estadística + los resultados de calidad | Histórico, con versionado de Delta |
+| **Gold** | `Tables/gold/` | Delta | Modelo estrella: **6 dimensiones conformadas + 6 hechos** + la salida estadística + los resultados de calidad | Histórico, con versionado de Delta |
 
 Nótese que los conteos **bajan** de capa en capa, y eso es la propiedad que define el diseño: la ingesta no decide nada y el modelo decide todo. Bronze guarda lo que SUNEDU publicó, sin interpretar; silver tipa lo que tiene llave viable; gold expone lo que responde una pregunta. Las exclusiones están declaradas en `referencias/datasets.csv` y el control de calidad #13 confronta esa declaración con la base en cada corrida.
 
@@ -116,7 +116,7 @@ En Fabric la asimetría se corrige por sí sola, y es coherente con la regla: al
 | Orquestación | `run_all.py` | Data Pipeline con dependencias entre actividades | Reemplazo directo |
 | SQL ad-hoc | DuckDB CLI | **SQL Analytics Endpoint** (T-SQL) | Ver `sql/portabilidad.md` |
 
-**El trabajo de traducción está medido, no estimado:** son **5 de las 397 líneas de código** de `sql/silver/` y `sql/gold/` — el 1,3 %, y las cinco están en silver. La capa gold entera —las seis dimensiones, los siete hechos, el HHI— se ejecuta sobre Spark sin tocar una coma. El desglose por motor está en [`sql/portabilidad.md`](../sql/portabilidad.md).
+**El trabajo de traducción está medido, no estimado:** son **5 de las 382 líneas de código** de `sql/silver/` y `sql/gold/` — el 1,3 %, y las cinco están en silver. La capa gold entera —las seis dimensiones y los seis hechos— se ejecuta sobre Spark sin tocar una coma. El desglose por motor está en [`sql/portabilidad.md`](../sql/portabilidad.md).
 
 Que la cifra sea 4 y no 25 es una decisión, no una casualidad: `arg_max()` se escribió como `max_by()` y el único `CAST(... AS VARCHAR)` se tipó como `VARCHAR(4)`, porque ambas formas las aceptan DuckDB y Spark por igual. Las cuatro líneas restantes son las dos macros `norm()` y `limpio()` —que en Spark son UDF de Python, verificadas contra las macros sobre los 1 299 valores distintos reales, con cero diferencias— y la lectura del CSV de macrorregiones.
 
@@ -176,7 +176,7 @@ Es barato —una llamada HTTP los meses en que no hay nada nuevo—, es idempote
 
 ## Modelo semántico Direct Lake
 
-Sobre `Tables/gold`, con las mismas 25 relaciones y las mismas 79 medidas del `.pbix`. El modelo se versiona en el Git del área de trabajo, donde Fabric lo guarda como texto (formato TMDL), y se promueve entre entornos con canalizaciones de implementación.
+Sobre `Tables/gold`, con las mismas 23 relaciones y las mismas 76 medidas del `.pbix`. El modelo se versiona en el Git del área de trabajo, donde Fabric lo guarda como texto (formato TMDL), y se promueve entre entornos con canalizaciones de implementación.
 
 **Por qué Direct Lake y no Import.** Las tablas de hechos son pequeñas (10–16 mil filas) y ya están en Delta: Direct Lake las consulta directamente desde el lago, sin importar ni duplicar datos, y el informe refleja la última versión sin un paso de refresco del dataset. Con estos volúmenes Import también funcionaría perfectamente; Direct Lake se prefiere porque elimina un paso de la cadena y, por tanto, un punto de fallo.
 

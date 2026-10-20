@@ -33,14 +33,14 @@ API de TUNI ──► 01 descargar ──► 02 transformar (SQL) ────�
 | Etapa | Qué hace | Salida | Tiempo |
 |---|---|---|---|
 | `01_descargar.py` | Resuelve la cadena de descarga de TUNI y baja el catálogo completo. Si el sha256 coincide, no vuelve a descargar | `data/bronze/*.zip`, `manifiesto.csv` | 3 min 45 s (2 s en caliente) |
-| `02_transformar.py` | Ejecuta `sql/bronze` → `sql/silver` → `sql/gold`. Toda la lógica está en SQL; Python solo orquesta | 13 tablas en `data/gold/*.parquet` | 19 min |
+| `02_transformar.py` | Ejecuta `sql/bronze` → `sql/silver` → `sql/gold`. Toda la lógica está en SQL; Python solo orquesta | 12 tablas en `data/gold/*.parquet` | 19 min |
 | `03_calidad.py` | Corre los controles de `sql/calidad.sql`; 3 son los principales | `salidas/calidad/qc_resultados.csv` | 13 s |
 | `04_tendencias.py` | Regresión de tendencia sobre ingresantes y matrícula, por programa | `dim_tendencia_programa.parquet` | 3 s |
 | `05_diccionario.py` | Documenta el modelo leyendo la base | `docs/diccionario_datos.md` | < 1 s |
 
 ## Power BI
 
-`UCSP_Benchmark.pbix` tiene el modelo, con 13 tablas, 25 relaciones y 79 medidas, y el informe de tres páginas:
+`UCSP_Benchmark.pbix` tiene el modelo, con 12 tablas, 23 relaciones y 76 medidas, y el informe de tres páginas:
 
 1. **Posición de mercado**: pregunta 4.1.
 2. **Portafolio de programas**: preguntas 4.2 y 4.3.

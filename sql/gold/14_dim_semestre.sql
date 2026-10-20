@@ -2,7 +2,7 @@
 --
 -- POR QUE EXISTE COMO DIMENSION Y NO COMO COLUMNA: tres hechos viven a grano
 -- semestral (matricula, egresados, docentes) y tres a grano anual (ingresantes,
--- postulantes, concentracion). Una dimension conformada sobre los tres
+-- postulantes, titulos). Una dimension conformada sobre los tres
 -- semestrales permite un slicer unico, y deja dim_periodo en grano ANUAL, que
 -- es el grano comun a los seis. Alternativa descartada: una sola dim_periodo
 -- semestral de 24 filas, que obligaria a colgar los hechos anuales de la fila

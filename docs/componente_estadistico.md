@@ -14,7 +14,7 @@ Código: [`04_tendencias.py`](../04_tendencias.py) · salida: `dim_tendencia_pro
 |---|---|---|
 | CAGR punta a punta (`[CAGR Matricula]`) | crecimiento entre dos años | Usa 2 de los 5 puntos: un año atípico en un extremo cambia el signo. No dice si el cambio es *sostenido*. Se mantiene como medida DAX, porque responde al rango que elige el usuario. |
 | Clasificación por crecimiento | grupos de programas | Necesita un criterio de "sostenido". La regresión **es** ese criterio: la clasificación se construye sobre ella. |
-| Índice de concentración (HHI) | reparto de la matrícula | No habla de tendencia. Se usa como indicador de la pregunta 4.1. |
+| Índice de concentración (HHI) | reparto de la matrícula | No habla de tendencia. Tampoco se usa como indicador: la distribución se lee mejor en barras de participación. |
 | Proyección simple | valor futuro | Con 5 puntos y sin modelo causal, proyectar es extrapolar ruido. La 4.3 pregunta por la tendencia observada, no por el futuro. |
 | Mann-Kendall (no paramétrico) | tendencia monótona, sin suponer normalidad | Con n = 5 solo declara significativa una serie **perfectamente** monótona (p mínimo = 2/120 = 0,017; con una sola inversión ya es 0,083), y no entrega la magnitud. |
 

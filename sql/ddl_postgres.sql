@@ -121,16 +121,6 @@ CREATE TABLE gold.fct_postulantes (
     PRIMARY KEY (anio, programa_sk, ubicacion_sk)
 );
 
--- GRANULARIDAD: una fila por anio x universidad.
-CREATE TABLE gold.fct_concentracion (
-    anio                     SMALLINT    NOT NULL REFERENCES gold.dim_periodo,
-    codigo_inei              VARCHAR(12) NOT NULL REFERENCES gold.dim_universidad,
-    hhi                      NUMERIC(8, 1) NOT NULL,
-    programas                INTEGER     NOT NULL,
-    matriculados_universidad INTEGER     NOT NULL,
-    PRIMARY KEY (anio, codigo_inei)
-);
-
 -- GRANULARIDAD: una fila por anio x semestre x universidad x programa.
 -- SIN ubicacion_sk: medido, DEPARTAMENTO_FILIAL viene vacio en el 100 % de las
 -- filas de la fuente de egresados. Ver sql/gold/24_fct_egresados.sql.

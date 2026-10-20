@@ -37,7 +37,6 @@ Es el sur andino más la selva sur, según el agrupamiento usado por INEI y CEPL
 | Crecimiento anual compuesto de la UCSP, el sur y el país | `CAGR Ingresantes *`, `CAGR Matricula *` | Resume la evolución del rango en una cifra comparable |
 | Cuota de la matrícula del sur | `Cuota de Mercado en el Sur` | Dice directamente si la UCSP gana o pierde peso en su región |
 | Participación de cada programa | `% Participacion en su Universidad` | Es la "distribución de la matrícula por programa" que pide la pregunta |
-| Concentración (HHI) frente a la mediana del sur | `HHI Universidad`, `HHI Mediana Macrosur` | Resume esa distribución en un número comparable con sus pares |
 | Programas activos | `Programas Activos` | Es la "cantidad de programas" del enunciado |
 | Alumnos por docente (contexto) | `Ratio Alumno Docente *` | Es una condición básica de calidad del licenciamiento; ubica el tamaño frente a la capacidad |
 
@@ -45,6 +44,7 @@ Es el sur andino más la selva sur, según el agrupamiento usado por INEI y CEPL
 |---|---|
 | Matrícula en valores absolutos, lado a lado | La escala hace ilegible a la UCSP junto al país |
 | Número de universidades | Describe el sistema, no a la UCSP |
+| Índice de concentración (HHI) | Resume la distribución en un número que hay que explicar antes de leerlo; las barras de participación la muestran directamente |
 
 **Lo que muestra:** en 2021–2025 la matrícula de la UCSP crece 0,8 % al año, pero su **ingreso cae 4,9 %** mientras el del sur sube 8,2 % y el de las privadas del sur 12,6 %. La matrícula todavía crece porque arrastra cohortes de años anteriores.
 

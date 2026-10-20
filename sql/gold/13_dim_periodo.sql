@@ -1,6 +1,6 @@
 -- DIM PERIODO. Grano: anio. Dimension conformada: se relaciona directamente
 -- con los SEIS hechos, lo que permite filtrar ingresantes, matricula,
--- postulantes, egresados, docentes y concentracion con un unico slicer.
+-- postulantes, egresados, docentes y titulos con un unico slicer.
 --
 -- El grano es ANUAL porque es el grano comun a todos los hechos: tres son
 -- anuales en la fuente y tres son semestrales. El eje semestral vive en

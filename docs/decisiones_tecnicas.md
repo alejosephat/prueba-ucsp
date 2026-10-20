@@ -217,11 +217,11 @@ Las tres → **hecho en gold**. Falla la 2 → **uso de contraste o referencia**
 
 ### D2. Dos dimensiones de tiempo, cada una en su grano → estrella pura
 
-**Contexto.** Siete hechos con dos granos temporales distintos: matrícula, egresados y docentes son **semestrales** en la fuente; ingresantes, postulantes, títulos y concentración son **anuales**.
+**Contexto.** Seis hechos con dos granos temporales distintos: matrícula, egresados y docentes son **semestrales** en la fuente; ingresantes, postulantes y títulos son **anuales**.
 
 **Decisión.** Dos dimensiones conformadas, no una:
 
-- `dim_periodo` a grano **año**, relacionada con **los siete** hechos. Es el grano común a todos.
+- `dim_periodo` a grano **año**, relacionada con **los seis** hechos. Es el grano común a todos.
 - `dim_semestre` a grano **periodo lectivo**, relacionada **solo con los tres** semestrales.
 
 **Por qué no una sola `dim_periodo` semestral de 24 filas.** Porque obligaría a colgar los hechos anuales de la fila `-I` de cada año, y eso **afirma algo falso**: que un ingresante ingresó en el semestre I. Un modelo no debe inventar precisión que la fuente no tiene.
@@ -278,7 +278,7 @@ Las tres → **hecho en gold**. Falla la 2 → **uso de contraste o referencia**
 
 ### D7. Siete tablas de hechos, no una tabla consolidada
 
-**Decisión.** `fct_ingresantes`, `fct_matricula`, `fct_postulantes`, `fct_egresados`, `fct_docentes`, `fct_titulos` y `fct_concentracion`, cada una con su granularidad declarada arriba del `CREATE TABLE`.
+**Decisión.** `fct_ingresantes`, `fct_matricula`, `fct_postulantes`, `fct_egresados`, `fct_docentes` y `fct_titulos`, cada una con su granularidad declarada arriba del `CREATE TABLE`.
 
 **Por qué no una sola tabla con una columna `tipo_hecho`.** Porque los granos no coinciden. Matrícula es año × semestre × universidad × programa × ubicación; docentes es año × semestre × universidad. Una tabla consolidada obligaría a rellenar con nulos las columnas que un tipo de hecho no tiene, y un `NULL` en una columna de grano no es un dato ausente: es una fila que significa otra cosa. Las medidas tendrían que filtrar por `tipo_hecho` en todas partes.
 
@@ -296,20 +296,20 @@ Las tres → **hecho en gold**. Falla la 2 → **uso de contraste o referencia**
 
 ### D8. Dos nociones distintas de "sur": dónde se imparte vs. de dónde es la universidad
 
-**Contexto.** Detectado al revisar el modelo ya construido. La medida `HHI Mediana Macrosur` filtraba por `dim_ubicacion[es_macrosur]`, pero `fct_concentracion` está a grano año × universidad y **no se relaciona con `dim_ubicacion`**. El filtro no propagaba: la medida devolvía la mediana nacional etiquetada como "del sur".
+**Contexto.** `fct_docentes` no trae programa ni ubicación, así que **no se relaciona con `dim_ubicacion`**. Una medida "del sur" sobre docentes que filtrara por `dim_ubicacion[es_macrosur]` no propagaría: devolvería el valor nacional etiquetado como "del sur", sin dar error.
 
-**Decisión.** Añadir a `dim_universidad` los atributos `departamento_sede`, `macrorregion_sede` y `es_macrosur_sede`, donde la sede principal es el departamento en el que la universidad concentra más matrícula. La medida pasa a filtrar por `dim_universidad[es_macrosur_sede]`.
+**Decisión.** Añadir a `dim_universidad` los atributos `departamento_sede`, `macrorregion_sede` y `es_macrosur_sede`, donde la sede principal es el departamento en el que la universidad concentra más matrícula. `Ratio Alumno Docente Macrosur` filtra por `dim_universidad[es_macrosur_sede]`.
 
 **Por qué el modelo necesita las dos nociones.** No son intercambiables:
 
 | Atributo | Qué marca | Para qué sirve |
 |---|---|---|
 | `dim_ubicacion[es_macrosur]` | **dónde se imparte** un programa | El filtro obligatorio del enunciado; `Matrícula Macrosur` |
-| `dim_universidad[es_macrosur_sede]` | **de dónde es** la universidad | Comparar instituciones entre sí: HHI, número de programas |
+| `dim_universidad[es_macrosur_sede]` | **de dónde es** la universidad | Comparar instituciones entre sí, como el ratio alumno/docente |
 
-Una universidad de Lima con filial en Cusco aporta matrícula a la macrorregión sur, pero no es una universidad del sur. Para "¿cuánta matrícula hay en el sur?" cuenta la primera; para "¿está la UCSP más concentrada que sus pares del sur?" cuenta la segunda.
+Una universidad de Lima con filial en Cusco aporta matrícula a la macrorregión sur, pero no es una universidad del sur. Para "¿cuánta matrícula hay en el sur?" cuenta la primera; para "¿cuántos alumnos por docente tienen las universidades del sur?" cuenta la segunda.
 
-**Alternativa descartada.** Bajar `fct_concentracion` a grano año × universidad × ubicación. Habría permitido el filtro geográfico, pero el HHI mide la concentración de la matrícula de una universidad **entre sus programas**: calcularlo por departamento mide otra cosa, y una universidad con filiales saldría artificialmente más concentrada en cada una.
+**Alternativa descartada.** Asignar a cada docente una ubicación a partir de las filiales de su universidad. La fuente no trae ese vínculo: repartirlos entre filiales sería inventar el dato.
 
 **Evidencia.** 39 universidades quedan con sede principal en la macrorregión sur, 81 en el centro, 34 en el norte y 6 en el oriente; 3 quedan sin clasificar por no registrar matrícula en ningún periodo I del recorte. La UCSP se resuelve correctamente como Arequipa.
 
@@ -379,13 +379,13 @@ Además, el 57 % de los ingresos con pendiente plana oscila más de un 10 % alre
 
 **Evidencia del valor de esta decisión.** En Ingeniería Industrial de la UCSP, la matrícula cae **−7,0 %** al año (p = 0,007) mientras la del mismo campo en el sur crece **+4,4 %**. En ingresantes, el programa está en +0,6 % y su campo en +10,3 %. Sin el comparador, el dato aislado se podría atribuir a una caída general del sector; con él, queda claro que no.
 
-### E5. HHI calculado en SQL, no en Python
+### E5. La distribución de la matrícula se muestra, no se resume en un índice
 
-**Decisión.** `fct_concentracion` con el índice Herfindahl-Hirschman por año y universidad, en una consulta con `SUM() OVER (PARTITION BY ...)`.
+**Decisión.** La pregunta 4.1 pide la distribución de la matrícula por programa. Se responde con las barras de matrícula por programa y su participación en la universidad, sin un índice de concentración.
 
-**Por qué.** Es una agregación pura: no necesita numpy. Mantiene `04_tendencias.py` enfocado solo en la regresión, y el cálculo viaja a Fabric/SQL Server sin cambios.
+**Por qué.** Un índice como el de Herfindahl-Hirschman resume la distribución en un número que hay que explicar antes de poder leerlo. Las barras la muestran directamente: qué programas pesan más y cuánto.
 
-**Evidencia.** El HHI de la UCSP baja de 1 410 (2021) a 1 212 (2025): la universidad se está **diversificando**, no concentrando.
+**Alternativa descartada.** El HHI por universidad y año, comparado con la mediana del sur. Se construyó y se retiró: sumaba una tabla, dos relaciones y tres medidas sin cambiar la lectura de la pregunta.
 
 ### E6. La lectura cruza las dos series, y manda el ingreso
 
@@ -464,7 +464,7 @@ Sin el `TREATAS`, en una tabla que no esté filtrada a una universidad el denomi
 
 **La contrapartida, declarada.** Al quitar `dim_universidad` también se pierde el filtro de gestión en esas tres medidas. Es deliberado —una cohorte de referencia que cambia con los segmentadores deja de ser referencia— y está anotado en la guía de armado para que el gráfico se titule en consecuencia. El resto de los visuales de la página sí responden a los cuatro filtros obligatorios.
 
-**Cómo se encontró.** En la segunda revisión, releyendo las medidas contra el enunciado en vez de contra sí mismas. Es el mismo tipo de fallo que `HHI Mediana Macrosur` en la primera revisión (ver D8): DAX no avisa cuando un filtro no propaga.
+**Cómo se encontró.** En la segunda revisión, releyendo las medidas contra el enunciado en vez de contra sí mismas. Es el mismo tipo de fallo que describe D8: DAX no avisa cuando un filtro no propaga.
 
 ---
 
@@ -524,11 +524,9 @@ RETURN
 
 ### F9. Los stocks son semi-aditivos en el año
 
-**Decisión.** `Matriculados`, `Docentes`, `Programas Activos` y `HHI Universidad` devuelven el **último año** del contexto, no la suma ni el promedio del rango.
+**Decisión.** `Matriculados`, `Docentes` y `Programas Activos` devuelven el **último año** del contexto, no la suma ni el promedio del rango.
 
-**Por qué.** La misma persona está matriculada cada año que estudia. Medido:
-- sin la regla, una tarjeta sin filtro de año daba **52 864** matriculados para la UCSP; el valor es 9 188;
-- el HHI de 2021–2025 daba 1 308, el promedio de los cinco años, cuando el de 2025 es 1 212.
+**Por qué.** La misma persona está matriculada cada año que estudia. Medido: sin la regla, una tarjeta sin filtro de año daba **52 864** matriculados para la UCSP; el valor es 9 188.
 
 Los flujos (ingresantes, egresados, postulaciones) sí se suman. Para las fichas existe `Ingresantes Ultimo Anio`.
 
@@ -607,7 +605,7 @@ Cada página abre con un titular calculado en DAX (`Titular Resumen`, `Titular T
 
 ### G4. Las medidas viven en el modelo y el catálogo las documenta
 
-**Decisión.** Las 79 medidas están en el modelo entregado, `UCSP_Benchmark.pbix`. [`docs/catalogo_medidas.md`](catalogo_medidas.md) documenta cada una: qué mide, la fórmula DAX y el formato.
+**Decisión.** Las 76 medidas están en el modelo entregado, `UCSP_Benchmark.pbix`. [`docs/catalogo_medidas.md`](catalogo_medidas.md) documenta cada una: qué mide, la fórmula DAX y el formato.
 
 **Por qué.** El entregable pide el modelo (5.1) y el catálogo (5.3). Los scripts con que se cargaron las medidas serían copias adicionales de las mismas fórmulas: más archivos que revisar y más lugares donde pueden desincronizarse.
 

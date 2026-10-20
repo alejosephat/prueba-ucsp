@@ -12,7 +12,7 @@ Estos notebooks son el respaldo. Demuestran, en código revisable, que la capa d
 
 | Archivo | Equivalente local | Qué hace |
 |---|---|---|
-| `nb_01_transformar.py` | `02_transformar.py` | Bronze → Silver → Gold sobre el Lakehouse: 7 cargadores, 6 dimensiones, 7 hechos |
+| `nb_01_transformar.py` | `02_transformar.py` | Bronze → Silver → Gold sobre el Lakehouse: 7 cargadores, 6 dimensiones, 6 hechos |
 
 El notebook carga los **siete datasets que llegan a silver**, de los nueve que la ingesta baja. Las dos exclusiones están declaradas en `referencias/datasets.csv`, que el notebook también materializa como tabla para que el control de calidad #13 pueda verificarlas.
 
@@ -28,7 +28,7 @@ El notebook carga los **siete datasets que llegan a silver**, de los nueve que l
 | `ref_parametros` | se genera con `.format()` desde `config.py` | se escribe con los mismos valores, declarados en el encabezado del notebook: no puede importar `config.py`, que vive fuera del Lakehouse |
 | **`sql/gold/*.sql`** | — | **Sin ningún cambio** |
 
-Son **5 líneas** de las 397 de `sql/silver/` y `sql/gold/`, todas en silver. La capa gold completa —las seis dimensiones, los siete hechos, el HHI— se ejecuta sin tocar una coma. Ese resultado no es casual: `arg_max()` se escribió como `max_by()` y el único `CAST(... AS VARCHAR)` se tipó como `VARCHAR(4)` precisamente para que los dos motores aceptaran el mismo texto.
+Son **5 líneas** de las 382 de `sql/silver/` y `sql/gold/`, todas en silver. La capa gold completa —las seis dimensiones y los seis hechos— se ejecuta sin tocar una coma. Ese resultado no es casual: `arg_max()` se escribió como `max_by()` y el único `CAST(... AS VARCHAR)` se tipó como `VARCHAR(4)` precisamente para que los dos motores aceptaran el mismo texto.
 
 ## Qué está verificado y qué no
 
