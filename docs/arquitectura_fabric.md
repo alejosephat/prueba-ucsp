@@ -16,7 +16,7 @@ Se tomó la segunda opción: **describir el diseño**. No es un reemplazo de la 
 | Manifiesto con sha256 por archivo | `data/bronze/manifiesto.csv` | Es el mecanismo de detección de periodo nuevo del Pipeline |
 | Medallion bronze / silver / gold | `02_transformar.py` | Mapea 1:1 a `Files/` y `Tables/` del Lakehouse |
 | Modelo estrella con hechos pequeños (10–16 mil filas) | `sql/gold/` | Es lo que hace apropiado Direct Lake |
-| Medidas DAX en un script de Tabular Editor | `powerbi/medidas.csx` | Se aplica igual sobre un modelo Direct Lake |
+| Relaciones y medidas DAX del modelo | `UCSP_Benchmark.pbix` | Se reutilizan tal cual sobre un modelo Direct Lake |
 | **El notebook PySpark ya escrito** | [`fabric/nb_01_transformar.py`](../fabric/nb_01_transformar.py) | Ejecuta los mismos `.sql` sobre Spark |
 
 Y para que esto no se quede en un diagrama: el notebook PySpark que implementa la capa de transformación **está escrito y entregado** en [`fabric/`](../fabric/). No se ha ejecutado —no hay capacidad— y así se declara, pero es código revisable, no una promesa.
@@ -112,7 +112,7 @@ En Fabric la asimetría se corrige por sí sola, y es coherente con la regla: al
 | Gold | Parquet (`sql/gold/`) | Delta vía `spark.sql()` | **Ninguno: los mismos archivos, sin cambios** |
 | Calidad | `03_calidad.py` + `sql/calidad.sql` | `nb_03_calidad`, escribiendo a `Tables/gold/qc_resultados` | 3 bloques `UNPIVOT` → `stack()` |
 | Estadística | `04_tendencias.py` (numpy + scipy) | El mismo notebook | Ninguno |
-| Capa semántica | `.pbix` import sobre Parquet | Modelo **Direct Lake** sobre `Tables/gold` | Ninguno: mismas relaciones, mismo `medidas.csx` |
+| Capa semántica | `.pbix` import sobre Parquet | Modelo **Direct Lake** sobre `Tables/gold` | Ninguno: mismas relaciones y mismas medidas |
 | Orquestación | `run_all.py` | Data Pipeline con dependencias entre actividades | Reemplazo directo |
 | SQL ad-hoc | DuckDB CLI | **SQL Analytics Endpoint** (T-SQL) | Ver `sql/portabilidad.md` |
 
@@ -176,7 +176,7 @@ Es barato —una llamada HTTP los meses en que no hay nada nuevo—, es idempote
 
 ## Modelo semántico Direct Lake
 
-Sobre `Tables/gold`, con las mismas 25 relaciones y las mismas 79 medidas: `powerbi/medidas.csx` se aplica con Tabular Editor igual que sobre el `.pbix`.
+Sobre `Tables/gold`, con las mismas 25 relaciones y las mismas 79 medidas del `.pbix`. El modelo se versiona en el Git del área de trabajo, donde Fabric lo guarda como texto (formato TMDL), y se promueve entre entornos con canalizaciones de implementación.
 
 **Por qué Direct Lake y no Import.** Las tablas de hechos son pequeñas (10–16 mil filas) y ya están en Delta: Direct Lake las consulta directamente desde el lago, sin importar ni duplicar datos, y el informe refleja la última versión sin un paso de refresco del dataset. Con estos volúmenes Import también funcionaría perfectamente; Direct Lake se prefiere porque elimina un paso de la cadena y, por tanto, un punto de fallo.
 
@@ -218,7 +218,7 @@ Decirlo así —y no "hay que llevarlo a Fabric porque sí"— es parte de la re
 2. Subir `data/bronze/*.zip` y la carpeta `sql/` a `Files/`. Los datos ya están descargados: no hace falta repetir la descarga.
 3. Importar [`fabric/nb_01_transformar.py`](../fabric/nb_01_transformar.py) como notebook y ejecutarlo. Ya trae las UDF, la lectura con `spark.read.csv` y el bucle sobre los `.sql`.
 4. Portar `03_calidad.py` y `04_tendencias.py` como notebooks, escribiendo el resultado a `Tables/gold` en vez de a CSV y Parquet. Son pandas y scipy sobre tablas de 16 mil filas: no necesitan Spark.
-5. Crear el modelo semántico Direct Lake, recrear las relaciones según [`powerbi/GUIA_ARMADO.md`](../powerbi/GUIA_ARMADO.md) y aplicar `medidas.csx` con Tabular Editor.
+5. Crear el modelo semántico Direct Lake con las relaciones de [`docs/diccionario_datos.md`](diccionario_datos.md) y las medidas del `.pbix`, documentadas en [`docs/catalogo_medidas.md`](catalogo_medidas.md).
 6. Armar el Pipeline con la detección mensual de periodo nuevo y la bifurcación por calidad.
 
 Todo es montaje: el trabajo de ingeniería —la traducción de la capa de transformación— ya está hecho y entregado.

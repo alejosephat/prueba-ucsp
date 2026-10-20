@@ -47,6 +47,6 @@ Esa distinción importa: el resto del proyecto solo reporta cifras medidas, y es
 1. Subir `sql/`, `referencias/` y `data/bronze/` a `Files/` del Lakehouse `lh_sunedu`.
 2. Importar `nb_01_transformar.py` como notebook.
 3. Ejecutarlo. Deja las tablas Delta en `Tables/`.
-4. Crear el modelo semántico Direct Lake sobre `Tables/gold` y aplicar `powerbi/medidas.csx`.
+4. Crear el modelo semántico Direct Lake sobre `Tables/gold` con las relaciones y medidas de `UCSP_Benchmark.pbix`.
 
 El orden completo, con el Pipeline y la actualización programada, está en el documento de arquitectura.

@@ -36,8 +36,7 @@ API de TUNI ──► 01 descargar ──► 02 transformar (SQL) ────�
 | `02_transformar.py` | Ejecuta `sql/bronze` → `sql/silver` → `sql/gold`. Toda la lógica está en SQL; Python solo orquesta | 13 tablas en `data/gold/*.parquet` | 19 min |
 | `03_calidad.py` | Corre los controles de `sql/calidad.sql`; 3 son los principales | `salidas/calidad/qc_resultados.csv` | 13 s |
 | `04_tendencias.py` | Regresión de tendencia sobre ingresantes y matrícula, por programa | `dim_tendencia_programa.parquet` | 3 s |
-| `05_powerbi.py` | Genera las 79 medidas DAX y su catálogo | `powerbi/medidas.csx`, `docs/catalogo_medidas.md` | < 1 s |
-| `06_diccionario.py` | Documenta el modelo leyendo la base | `docs/diccionario_datos.md` | < 1 s |
+| `05_diccionario.py` | Documenta el modelo leyendo la base | `docs/diccionario_datos.md` | < 1 s |
 
 ## Power BI
 
@@ -51,7 +50,6 @@ Si el proyecto se mueve de carpeta, se cambia el parámetro `RutaGold` (*Transfo
 
 - Armado y verificación, visual por visual: [`powerbi/GUIA_ARMADO.md`](powerbi/GUIA_ARMADO.md).
 - Tema: [`powerbi/tema_ucsp_ejecutivo.json`](powerbi/tema_ucsp_ejecutivo.json).
-- El modelo semántico también está como código en [`powerbi/modelo_tmdl/`](powerbi/modelo_tmdl/).
 
 ## Dónde está cada cosa
 

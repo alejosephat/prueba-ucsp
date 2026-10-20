@@ -1,7 +1,7 @@
 # Diccionario de datos
 
 Modelo en **esquema estrella**. La estructura de este documento se lee directamente
-de la base construida (`data/sunedu.duckdb`) al ejecutar `06_diccionario.py`, de modo
+de la base construida (`data/sunedu.duckdb`) al ejecutar `05_diccionario.py`, de modo
 que no puede describir columnas que no existan.
 
 - **Fuente:** datos abiertos de SUNEDU publicados en <https://tuni.pe/datos>

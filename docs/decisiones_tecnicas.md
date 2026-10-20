@@ -605,11 +605,12 @@ Cada página abre con un titular calculado en DAX (`Titular Resumen`, `Titular T
 
 **Cómo se mitiga el riesgo de "describir y nada más".** Un diagrama de medallion lo dibuja cualquiera. Por eso la respuesta al 3.6 no es solo `docs/arquitectura_fabric.md`: incluye `fabric/nb_01_transformar.py`, el notebook PySpark que ejecuta los mismos `.sql` sobre Spark. Está declarado como no ejecutado, pero es código revisable.
 
-### G4. Una sola fuente de verdad para las medidas DAX
+### G4. Las medidas viven en el modelo y el catálogo las documenta
 
-**Decisión.** `05_powerbi.py` contiene la lista de medidas y **genera** tres artefactos: el script de Tabular Editor (`medidas.csx`), el respaldo en texto plano (`medidas.dax`) y el catálogo documentado (`docs/catalogo_medidas.md`).
+**Decisión.** Las 79 medidas están en el modelo entregado, `UCSP_Benchmark.pbix`. [`docs/catalogo_medidas.md`](catalogo_medidas.md) documenta cada una: qué mide, la fórmula DAX y el formato.
 
-**Por qué.** El entregable 5.3 pide un catálogo de medidas. Mantenerlo a mano junto al modelo garantiza que se desincronicen. Generando ambos del mismo origen, eso no puede pasar.
+**Por qué.** El entregable pide el modelo (5.1) y el catálogo (5.3). Los scripts con que se cargaron las medidas serían copias adicionales de las mismas fórmulas: más archivos que revisar y más lugares donde pueden desincronizarse.
+
 ### G5. SQL escrito para que lo acepten DuckDB y Spark sin traducción
 
 **Contexto.** La capa de transformación se desarrolla en DuckDB, pero el perfil del puesto pide PySpark y la arquitectura propuesta corre sobre un Lakehouse. Si el SQL usa funciones propias de DuckDB, la portabilidad deja de ser una afirmación verificable.
@@ -627,11 +628,11 @@ Cada página abre con un titular calculado en DAX (`Titular Resumen`, `Titular T
 
 **Alternativa descartada.** Mantener `arg_max` y documentar la traducción. Es lo que había antes de esta revisión; convertía una afirmación demostrable en una promesa.
 
-### G6. El modelo se construye y se verifica por código
+### G6. El modelo se verifica por consulta DAX contra el pipeline
 
-**Decisión.** El modelo semántico se cargó en Power BI Desktop mediante el servidor MCP oficial de Microsoft: tablas, relaciones y medidas. Cada cifra clave se consultó por DAX y se contrastó con el SQL del pipeline. El modelo se exporta como TMDL a `powerbi/modelo_tmdl/`.
+**Decisión.** El modelo semántico se cargó en Power BI Desktop mediante el servidor MCP oficial de Microsoft. Cada cifra clave se consultó por DAX y se contrastó con el SQL del pipeline.
 
-**Por qué.** Un `.pbix` es binario: no se puede revisar en un diff ni versionar con sentido. El TMDL sí. Además, la verificación por consulta encontró defectos que una revisión visual no habría visto (F9 a F13).
+**Por qué.** La consulta encontró defectos que una revisión visual no habría visto (F9 a F13). La herramienta es parte de la revisión, no del pipeline: lo que se entrega es el `.pbix` ya verificado.
 
 ### G7. La generación de la presentación queda fuera del repositorio
 

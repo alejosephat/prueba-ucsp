@@ -1,9 +1,7 @@
 # Catálogo de medidas DAX
 
-79 medidas explícitas, organizadas en carpetas de visualización.
-Generado automáticamente por `05_powerbi.py` a partir de la misma definición
-que produce `powerbi/medidas.csx`, de modo que catálogo y modelo no pueden
-quedar desincronizados.
+79 medidas explícitas del modelo entregado (`UCSP_Benchmark.pbix`), en la tabla
+`_Medidas` y organizadas en carpetas de visualización.
 
 ## Convenciones aplicadas
 

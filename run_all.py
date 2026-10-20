@@ -10,7 +10,7 @@ import sys
 import time
 
 ETAPAS = ["01_descargar", "02_transformar", "03_calidad", "04_tendencias",
-          "05_powerbi", "06_diccionario"]
+          "05_diccionario"]
 
 
 def main():
