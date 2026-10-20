@@ -1,0 +1,102 @@
+relationship fct_ingresantes_anio_dim_periodo_anio
+	fromColumn: fct_ingresantes.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_matricula_anio_dim_periodo_anio
+	fromColumn: fct_matricula.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_postulantes_anio_dim_periodo_anio
+	fromColumn: fct_postulantes.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_egresados_anio_dim_periodo_anio
+	fromColumn: fct_egresados.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_docentes_anio_dim_periodo_anio
+	fromColumn: fct_docentes.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_titulos_anio_dim_periodo_anio
+	fromColumn: fct_titulos.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_concentracion_anio_dim_periodo_anio
+	fromColumn: fct_concentracion.anio
+	toColumn: dim_periodo.anio
+
+relationship fct_matricula_semestre_dim_semestre_semestre
+	fromColumn: fct_matricula.semestre
+	toColumn: dim_semestre.semestre
+
+relationship fct_egresados_semestre_dim_semestre_semestre
+	fromColumn: fct_egresados.semestre
+	toColumn: dim_semestre.semestre
+
+relationship fct_docentes_semestre_dim_semestre_semestre
+	fromColumn: fct_docentes.semestre
+	toColumn: dim_semestre.semestre
+
+relationship fct_ingresantes_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_ingresantes.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_matricula_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_matricula.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_postulantes_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_postulantes.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_egresados_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_egresados.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_docentes_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_docentes.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_titulos_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_titulos.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_concentracion_codigo_inei_dim_universidad_codigo_inei
+	fromColumn: fct_concentracion.codigo_inei
+	toColumn: dim_universidad.codigo_inei
+
+relationship fct_ingresantes_programa_sk_dim_programa_programa_sk
+	fromColumn: fct_ingresantes.programa_sk
+	toColumn: dim_programa.programa_sk
+
+relationship fct_matricula_programa_sk_dim_programa_programa_sk
+	fromColumn: fct_matricula.programa_sk
+	toColumn: dim_programa.programa_sk
+
+relationship fct_postulantes_programa_sk_dim_programa_programa_sk
+	fromColumn: fct_postulantes.programa_sk
+	toColumn: dim_programa.programa_sk
+
+relationship fct_egresados_programa_sk_dim_programa_programa_sk
+	fromColumn: fct_egresados.programa_sk
+	toColumn: dim_programa.programa_sk
+
+relationship fct_ingresantes_ubicacion_sk_dim_ubicacion_ubicacion_sk
+	fromColumn: fct_ingresantes.ubicacion_sk
+	toColumn: dim_ubicacion.ubicacion_sk
+
+relationship fct_matricula_ubicacion_sk_dim_ubicacion_ubicacion_sk
+	fromColumn: fct_matricula.ubicacion_sk
+	toColumn: dim_ubicacion.ubicacion_sk
+
+relationship fct_postulantes_ubicacion_sk_dim_ubicacion_ubicacion_sk
+	fromColumn: fct_postulantes.ubicacion_sk
+	toColumn: dim_ubicacion.ubicacion_sk
+
+relationship dim_tendencia_programa_programa_sk_dim_programa_programa_sk
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: dim_tendencia_programa.programa_sk
+	toColumn: dim_programa.programa_sk
+

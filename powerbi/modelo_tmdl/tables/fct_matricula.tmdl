@@ -1,0 +1,47 @@
+table fct_matricula
+	lineageTag: 30efae6e-2d29-48e9-b17e-047d4af7e15e
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: 28dcbbfa-1f31-4438-861f-df1083e51cf6
+		sourceColumn: anio
+
+	column semestre
+		dataType: int64
+		isHidden
+		lineageTag: 2a1042aa-8148-400c-a916-b24914360e9f
+		sourceColumn: semestre
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 718e0bea-ff65-4e25-9348-3cfbce497e91
+		sourceColumn: codigo_inei
+
+	column programa_sk
+		dataType: string
+		isHidden
+		lineageTag: d74614fa-8d92-4035-a553-f99ce9629832
+		sourceColumn: programa_sk
+
+	column ubicacion_sk
+		dataType: string
+		isHidden
+		lineageTag: cc6d9c05-6cee-4ad5-a163-b2e570eaebad
+		sourceColumn: ubicacion_sk
+
+	column matriculados
+		dataType: int64
+		isHidden
+		lineageTag: b501e3df-2a7f-47ec-b344-49f874f1143d
+		sourceColumn: matriculados
+
+	partition fct_matricula = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_matricula.parquet"))
+				in
+				    Origen
+

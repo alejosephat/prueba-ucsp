@@ -1,0 +1,53 @@
+table fct_egresados
+	lineageTag: 9ecfb0a9-0ebc-4b81-969f-bb0e2fe6c7ba
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: ea3e719d-fb67-4afd-9c74-6dc36b2a360c
+		sourceColumn: anio
+
+	column semestre
+		dataType: int64
+		isHidden
+		lineageTag: 30032954-b42c-42d2-b9ee-5aeb41bcfc0d
+		sourceColumn: semestre
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 5266bc39-9b0e-4a45-a291-d0486e23a404
+		sourceColumn: codigo_inei
+
+	column programa_sk
+		dataType: string
+		isHidden
+		lineageTag: b88f25ea-48f7-4a1c-a401-9e3270ea98de
+		sourceColumn: programa_sk
+
+	column egresados
+		dataType: int64
+		isHidden
+		lineageTag: 04dca605-d24c-495f-a845-f21702635f57
+		sourceColumn: egresados
+
+	column nota_promedio
+		dataType: double
+		isHidden
+		lineageTag: 31e3446c-497e-4520-90b2-a513f2781d5e
+		sourceColumn: nota_promedio
+
+	column creditos_aprobados
+		dataType: double
+		isHidden
+		lineageTag: a2e7ba7d-a6d7-4a3d-a50a-e43abb0491c6
+		sourceColumn: creditos_aprobados
+
+	partition fct_egresados = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_egresados.parquet"))
+				in
+				    Origen
+

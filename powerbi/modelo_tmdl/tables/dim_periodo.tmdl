@@ -1,0 +1,39 @@
+table dim_periodo
+	lineageTag: b2a43c69-2be5-4cd5-9a3a-c2800513db78
+
+	column anio
+		dataType: int64
+		lineageTag: d0a4dc2e-5832-478c-b371-5dd4e707fab7
+		summarizeBy: none
+		sourceColumn: anio
+
+	column etiqueta
+		dataType: string
+		lineageTag: 17b52367-7731-4826-a332-628957836fab
+		sourceColumn: etiqueta
+
+	column orden
+		dataType: int64
+		isHidden
+		lineageTag: b7df78d0-3da3-4687-8ed4-15c09df9b26e
+		summarizeBy: none
+		sourceColumn: orden
+
+	column es_ultimo_anio
+		dataType: boolean
+		lineageTag: fc8c5c6e-b21b-4cfc-9eec-490b858d0af0
+		sourceColumn: es_ultimo_anio
+
+	column es_tendencia
+		dataType: boolean
+		lineageTag: 03ba84c3-502e-45f6-9486-b008a67b4622
+		sourceColumn: es_tendencia
+
+	partition dim_periodo = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "dim_periodo.parquet"))
+				in
+				    Origen
+

@@ -1,0 +1,53 @@
+table fct_docentes
+	lineageTag: b643fc36-fee6-456f-83fc-7afc1ac48894
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: 3322efd4-02d2-4803-bc2b-a3b361936627
+		sourceColumn: anio
+
+	column semestre
+		dataType: int64
+		isHidden
+		lineageTag: ebadecbb-850d-4f30-9cc8-8f3bace2988d
+		sourceColumn: semestre
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 705615fc-02df-4a21-aec1-81708ade59d5
+		sourceColumn: codigo_inei
+
+	column docentes
+		dataType: int64
+		isHidden
+		lineageTag: 6e5a5953-9ebc-4222-9fe9-183a13b438e6
+		sourceColumn: docentes
+
+	column docentes_tiempo_completo
+		dataType: int64
+		isHidden
+		lineageTag: 040a72e4-723e-4bb3-a689-abf8206a2f42
+		sourceColumn: docentes_tiempo_completo
+
+	column docentes_posgrado
+		dataType: int64
+		isHidden
+		lineageTag: 6b91d7f7-d242-49b0-9b40-ea9404ef66fa
+		sourceColumn: docentes_posgrado
+
+	column docentes_ordinarios
+		dataType: int64
+		isHidden
+		lineageTag: d98151a2-09e9-48bf-b21f-3babde51a949
+		sourceColumn: docentes_ordinarios
+
+	partition fct_docentes = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_docentes.parquet"))
+				in
+				    Origen
+

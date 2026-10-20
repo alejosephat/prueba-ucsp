@@ -1,0 +1,28 @@
+table dim_semestre
+	lineageTag: af6f201e-0c21-4df8-ad35-c78feab4a106
+
+	column semestre
+		dataType: int64
+		isHidden
+		lineageTag: b32755fa-ed68-4023-8c29-e2db88b64379
+		summarizeBy: none
+		sourceColumn: semestre
+
+	column etiqueta
+		dataType: string
+		lineageTag: 15a539a7-45fb-4183-8f45-18dc1743dff5
+		sourceColumn: etiqueta
+
+	column es_serie_anual
+		dataType: boolean
+		lineageTag: 20ed380a-0c7e-4b96-a245-f436fa7e9374
+		sourceColumn: es_serie_anual
+
+	partition dim_semestre = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "dim_semestre.parquet"))
+				in
+				    Origen
+

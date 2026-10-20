@@ -1,0 +1,10 @@
+categoria,rol,capa_maxima,preguntas,aporte
+Matriculado,hecho,gold,4.1 4.2 4.3,Matricula por programa y semestre: es la medida central de la prueba
+Ingresante,hecho,gold,4.1 4.2,Ingreso por programa y anio
+Postulante,hecho,gold,4.4,Demanda recibida y selectividad del proceso de admision
+Egresado,hecho,gold,4.1 4.4,Cierra el embudo postulante-ingresante-matriculado-egresado y aporta nota promedio y creditos
+Docente,hecho,gold,4.1,Ratio alumno/docente y % a tiempo completo: Condiciones Basicas de Calidad del licenciamiento SUNEDU
+GYT Nacionales,hecho,gold,4.4,Titulacion efectiva (obtener el diploma) frente a egreso (terminar los cursos)
+Carnés Universitarios,contraste,silver,3.2,Registro administrativo: cuenta tramites y no alumnos. Su columna GUID identifica lotes de emision y no personas (control 15) asi que no permite contar matricula. Sirve de contraste de volumen contra una fuente independiente
+Oferta universitaria,referencia,bronze,-,Catalogo institucional: su contenido util (gestion licenciamiento sede) ya viene repetido en las tablas de personas
+GYT Extranjeros,excluido,bronze,-,Reconocimiento de titulos de universidades EXTRANJERAS: no contiene universidad peruana con la que unirlo al modelo. Viene ademas en UTF-16

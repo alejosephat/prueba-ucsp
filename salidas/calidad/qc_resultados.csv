@@ -1,0 +1,223 @@
+﻿grupo,control,detalle,valor,umbral,estado
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,carne 2021,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,carne 2022,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,carne 2023,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,carne 2024,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,carne 2025,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2020-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2020-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2021-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2021-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2022-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2022-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2023-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2023-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2024-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2024-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2025-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,docente 2025-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,egresado 2022,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,egresado 2023,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,egresado 2024,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,egresado 2025,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2020,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2021,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2022,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2023,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2024,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,gyt_nacional 2025,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2020,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2021,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2022,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2023,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2024,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,ingresante 2025,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2020-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2020-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2021-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2021-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2022-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2022-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2023-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2023-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2024-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2024-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2025-I,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,matriculado 2025-II,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,postulante 2022,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,postulante 2023,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,postulante 2024,0.0,= 0,OK
+1 PRINCIPAL - nada se pierde entre capas,02 Conciliacion crudo -> silver,postulante 2025,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,dim_ubicacion sin macrorregion asignada,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_docentes -> dim_semestre,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_docentes -> dim_universidad,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_egresados -> dim_programa,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_egresados -> dim_semestre,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_egresados -> dim_universidad,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_ingresantes -> dim_programa,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_ingresantes -> dim_ubicacion,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_ingresantes -> dim_universidad,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_matricula -> dim_programa,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_matricula -> dim_semestre,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_matricula -> dim_ubicacion,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_matricula -> dim_universidad,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_postulantes -> dim_programa,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_postulantes -> dim_ubicacion,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_postulantes -> dim_universidad,0.0,= 0,OK
+2 PRINCIPAL - las llaves identifican lo que dicen,05 Integridad referencial,fct_titulos -> dim_universidad,0.0,= 0,OK
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2020-1,90.1,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2020-2,83.7,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2021-1,93.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2021-2,94.6,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2022-1,99.5,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2022-2,100.8,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2023-1,107.4,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2023-2,107.1,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2024-1,105.8,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2024-2,105.8,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2025-1,100.5,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,docente 2025-2,62.5,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2022-1,95.6,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2022-2,151.1,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2023-1,102.2,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2023-2,164.5,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2024-1,97.8,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2024-2,142.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2025-1,88.7,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,egresado 2025-2,55.2,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2020-1,85.1,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2020-2,81.4,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2021-1,94.1,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2021-2,94.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2022-1,101.4,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2022-2,97.6,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2023-1,104.4,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2023-2,98.6,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2024-1,108.9,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2024-2,106.2,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2025-1,116.2,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,16 Volumen del periodo sobre la mediana de su fuente,matriculado 2025-2,112.7,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,17 Universidades que reportan matricula pero no egresados,anio 2022,19.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,17 Universidades que reportan matricula pero no egresados,anio 2023,17.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,17 Universidades que reportan matricula pero no egresados,anio 2024,23.0,informativo,INFO
+3 PRINCIPAL - cada fuente cubre lo que dice cubrir,17 Universidades que reportan matricula pero no egresados,anio 2025,43.0,informativo,INFO
+9 apoyo,01 Filtro de pregrado,carne 2021,93.5,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,carne 2022,95.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,carne 2023,95.0,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,carne 2024,95.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,carne 2025,94.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2020-I,90.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2020-II,89.5,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2021-I,91.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2021-II,90.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2022-I,88.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2022-II,90.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2023-I,90.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2023-II,90.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2024-I,90.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2024-II,90.0,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2025-I,89.9,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,docente 2025-II,90.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,egresado 2022,75.5,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,egresado 2023,78.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,egresado 2024,76.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,egresado 2025,81.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2020,89.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2021,90.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2022,90.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2023,89.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2024,89.4,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,gyt_nacional 2025,86.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2020,79.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2021,79.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2022,80.9,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2023,83.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2024,80.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,ingresante 2025,81.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2020-I,92.8,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2020-II,91.7,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2021-I,91.3,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2021-II,91.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2022-I,91.5,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2022-II,92.4,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2023-I,93.4,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2023-II,93.2,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2024-I,92.9,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2024-II,92.4,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2025-I,92.6,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,matriculado 2025-II,93.1,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,postulante 2022,88.5,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,postulante 2023,90.4,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,postulante 2024,88.9,% retenido (informativo),INFO
+9 apoyo,01 Filtro de pregrado,postulante 2025,89.0,% retenido (informativo),INFO
+9 apoyo,03 Duplicados absorbidos por el DISTINCT,ingresantes,12.0,informativo,INFO
+9 apoyo,03 Duplicados absorbidos por el DISTINCT,matriculados,3.0,informativo,INFO
+9 apoyo,04 Nulos en campos clave,ingresante.codigo_inei,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,ingresante.codigo_siu_programa,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,ingresante.departamento,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,ingresante.guid_persona,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,ingresante.nombre_grupo_3,572094.0,limitacion declarada de la fuente,INFO
+9 apoyo,04 Nulos en campos clave,ingresante.nombre_programa,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,matriculado.codigo_inei,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,matriculado.codigo_siu_programa,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,matriculado.departamento,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,matriculado.guid_persona,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,matriculado.nombre_grupo_3,3201519.0,limitacion declarada de la fuente,INFO
+9 apoyo,04 Nulos en campos clave,matriculado.nombre_programa,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,postulante.codigo_inei,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,postulante.codigo_siu_programa,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,postulante.departamento,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,postulante.guid_persona,0.0,= 0,OK
+9 apoyo,04 Nulos en campos clave,postulante.nombre_grupo_3,123167.0,limitacion declarada de la fuente,INFO
+9 apoyo,04 Nulos en campos clave,postulante.nombre_programa,0.0,= 0,OK
+9 apoyo,06 Matricula sin ingresantes,anio 2020,1799.0,informativo,INFO
+9 apoyo,06 Matricula sin ingresantes,anio 2021,1859.0,informativo,INFO
+9 apoyo,06 Matricula sin ingresantes,anio 2022,1507.0,informativo,INFO
+9 apoyo,06 Matricula sin ingresantes,anio 2023,1165.0,informativo,INFO
+9 apoyo,06 Matricula sin ingresantes,anio 2024,1047.0,informativo,INFO
+9 apoyo,06 Matricula sin ingresantes,anio 2025,649.0,informativo,INFO
+9 apoyo,07 Cobertura de periodos,TOTAL sin los 6 anios,39.0,informativo,INFO
+9 apoyo,07 Cobertura de periodos,licenciamiento: Ley de Creación,4.0,informativo,INFO
+9 apoyo,07 Cobertura de periodos,licenciamiento: Licencia Denegada,28.0,informativo,INFO
+9 apoyo,07 Cobertura de periodos,licenciamiento: Licenciada,7.0,informativo,INFO
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2020,-4.28,abs < 10%,OK
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2021,-0.06,abs < 10%,OK
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2022,-3.5,abs < 10%,OK
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2023,-5.26,abs < 10%,OK
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2024,-2.24,abs < 10%,OK
+9 apoyo,08 Variacion intra-anual (II vs I),anio 2025,-2.81,abs < 10%,OK
+9 apoyo,09 Conciliacion cruzada admitidos vs ingresantes,anio 2022,2.98,desvio abs < 10%,OK
+9 apoyo,09 Conciliacion cruzada admitidos vs ingresantes,anio 2023,0.57,desvio abs < 10%,OK
+9 apoyo,09 Conciliacion cruzada admitidos vs ingresantes,anio 2024,0.32,desvio abs < 10%,OK
+9 apoyo,09 Conciliacion cruzada admitidos vs ingresantes,anio 2025,0.23,desvio abs < 10%,OK
+9 apoyo,10 Universidades con nombre divergente,resueltas con el nombre mas reciente,0.0,informativo,INFO
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2020,96.14,>= 90% resuelto,OK
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2021,97.22,>= 90% resuelto,OK
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2022,97.24,>= 90% resuelto,OK
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2023,98.54,>= 90% resuelto,OK
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2024,98.61,>= 90% resuelto,OK
+9 apoyo,11 Titulos resueltos a universidad por nombre,anio 2025,97.86,>= 90% resuelto,OK
+9 apoyo,12 Carnes emitidos sobre matriculados,anio 2021,32.2,informativo,INFO
+9 apoyo,12 Carnes emitidos sobre matriculados,anio 2022,40.3,informativo,INFO
+9 apoyo,12 Carnes emitidos sobre matriculados,anio 2023,44.0,informativo,INFO
+9 apoyo,12 Carnes emitidos sobre matriculados,anio 2024,48.1,informativo,INFO
+9 apoyo,12 Carnes emitidos sobre matriculados,anio 2025,38.3,informativo,INFO
+9 apoyo,13 Triaje de datasets (declarado vs real),contraste: Carnés Universitarios,2858834.0,coherente con capa_maxima = silver,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),excluido: GYT Extranjeros,0.0,coherente con capa_maxima = bronze,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: Docente,852105.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: Egresado,456444.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: GYT Nacionales,1716201.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: Ingresante,2522716.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: Matriculado,16043351.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),hecho: Postulante,3691404.0,coherente con capa_maxima = gold,OK
+9 apoyo,13 Triaje de datasets (declarado vs real),referencia: Oferta universitaria,0.0,coherente con capa_maxima = bronze,OK
+9 apoyo,14 Variacion interanual de la matricula,de 2020 a 2021 (anio excluido de la regresion),10.68,informativo,INFO
+9 apoyo,14 Variacion interanual de la matricula,de 2021 a 2022,7.67,informativo,INFO
+9 apoyo,14 Variacion interanual de la matricula,de 2022 a 2023,2.98,informativo,INFO
+9 apoyo,14 Variacion interanual de la matricula,de 2023 a 2024,4.34,informativo,INFO
+9 apoyo,14 Variacion interanual de la matricula,de 2024 a 2025,6.7,informativo,INFO
+9 apoyo,15 El GUID de carnes identifica personas,filas por valor distinto de GUID (anio 2021),1263.2,= 1.0 si fuera una persona,INFO
+9 apoyo,15 El GUID de carnes identifica personas,filas por valor distinto de GUID (anio 2022),679.3,= 1.0 si fuera una persona,INFO
+9 apoyo,15 El GUID de carnes identifica personas,filas por valor distinto de GUID (anio 2023),586.5,= 1.0 si fuera una persona,INFO
+9 apoyo,15 El GUID de carnes identifica personas,filas por valor distinto de GUID (anio 2024),703.6,= 1.0 si fuera una persona,INFO
+9 apoyo,15 El GUID de carnes identifica personas,filas por valor distinto de GUID (anio 2025),502.5,= 1.0 si fuera una persona,INFO

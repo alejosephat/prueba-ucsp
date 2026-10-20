@@ -1,0 +1,41 @@
+table fct_concentracion
+	lineageTag: e8fb5771-eaa4-40eb-a09c-caf1094f53f7
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: 02aaa694-ea0a-4152-acca-8ee4cb3f132e
+		sourceColumn: anio
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 934763a0-5a33-4192-8dfd-ef0c56bc72e4
+		sourceColumn: codigo_inei
+
+	column hhi
+		dataType: double
+		isHidden
+		lineageTag: 9ef3989e-e4ab-4387-9bf4-ba76322f690e
+		sourceColumn: hhi
+
+	column programas
+		dataType: int64
+		isHidden
+		lineageTag: 2a129f59-1e44-44cb-88a3-5c34de4dcf29
+		sourceColumn: programas
+
+	column matriculados_universidad
+		dataType: double
+		isHidden
+		lineageTag: 91bc5ec5-4715-432a-8981-a84985732de4
+		sourceColumn: matriculados_universidad
+
+	partition fct_concentracion = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_concentracion.parquet"))
+				in
+				    Origen
+

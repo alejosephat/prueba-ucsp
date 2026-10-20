@@ -1,0 +1,12 @@
+# Datos: se regeneran con `python run_all.py`, no se versionan.
+data/
+
+# El .pbix NO se ignora: es el entregable 5.1 y debe viajar con el proyecto.
+# Lo que se ignora son los temporales y la cache de Power BI Desktop.
+*.pbix.tmp
+.pbi/
+
+# Python
+__pycache__/
+*.pyc
+.venv/

@@ -1,0 +1,53 @@
+table fct_titulos
+	lineageTag: c4be8c63-700d-4bac-a20c-7957ebd77ac6
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: 33e85212-61f8-4060-ba72-40687c5d0bbf
+		sourceColumn: anio
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 0045e652-bfc8-4636-8c1f-084fa9b354f8
+		sourceColumn: codigo_inei
+
+	column titulos
+		dataType: int64
+		isHidden
+		lineageTag: 1d1d5b5a-9109-4082-9954-8ede3eb56718
+		sourceColumn: titulos
+
+	column personas
+		dataType: int64
+		isHidden
+		lineageTag: 96c21ae6-5b0f-41af-beac-8efc3a18e621
+		sourceColumn: personas
+
+	column bachilleres
+		dataType: int64
+		isHidden
+		lineageTag: 0e63c6d8-5f84-485c-8553-f42ae54b7e62
+		sourceColumn: bachilleres
+
+	column titulados
+		dataType: int64
+		isHidden
+		lineageTag: 08d3d1af-4d73-476d-9758-ae956fc386bd
+		sourceColumn: titulados
+
+	column anios_estudio_mediana
+		dataType: double
+		isHidden
+		lineageTag: 7b205bdb-35bd-4900-93f5-2b2c672f8706
+		sourceColumn: anios_estudio_mediana
+
+	partition fct_titulos = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_titulos.parquet"))
+				in
+				    Origen
+

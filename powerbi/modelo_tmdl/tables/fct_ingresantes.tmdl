@@ -1,0 +1,41 @@
+table fct_ingresantes
+	lineageTag: 7166fbde-deb2-4318-ae5c-f9f97aad0788
+
+	column anio
+		dataType: int64
+		isHidden
+		lineageTag: 767215d3-7d61-4883-9815-5b9aa8458a89
+		sourceColumn: anio
+
+	column codigo_inei
+		dataType: string
+		isHidden
+		lineageTag: 59c6b9db-a44f-4e09-9aa9-8416100807e8
+		sourceColumn: codigo_inei
+
+	column programa_sk
+		dataType: string
+		isHidden
+		lineageTag: 255bfff6-b306-4207-a018-6ccd5bc52b29
+		sourceColumn: programa_sk
+
+	column ubicacion_sk
+		dataType: string
+		isHidden
+		lineageTag: a1c559ad-a410-4a58-9f7c-1a91d4fb39a8
+		sourceColumn: ubicacion_sk
+
+	column ingresantes
+		dataType: int64
+		isHidden
+		lineageTag: 50d3c04f-3d4e-4c7a-ae84-22d6106eaae7
+		sourceColumn: ingresantes
+
+	partition fct_ingresantes = m
+		mode: import
+		source =
+				let
+				    Origen = Parquet.Document(File.Contents(RutaGold & "fct_ingresantes.parquet"))
+				in
+				    Origen
+

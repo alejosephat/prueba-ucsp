@@ -1,0 +1,4 @@
+/// Carpeta con los parquet de la capa gold. Si el proyecto se mueve, se cambia solo este valor.
+expression RutaGold = "C:\Users\jugui\prueba-tecnica-ucsp\data\gold\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: f7f89a11-6743-4946-b413-5810d1c7c49f
+
